@@ -1,0 +1,69 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nav Test</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+}
+
+body {
+  margin: 0;
+  background: #fffdf3;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 3px solid #000;
+  background: #fff;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.btn-nav {
+  background: #ffe600;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+ <a href="homepage.html"><div class="logo">ToolCart</div></a>
+  <ul>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="#">Donations</a></li>
+    <li><a href="Signup.html" class="btn-nav">Sign Up</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ToolCart — CSS Button Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  background: #fdfcf7;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* NAV (same as your homepage) */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 3px solid #000;
+  background: #fff;
+}
+
+.logo { font-size: 16px; }
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 10px;
+}
+
+/* BUTTON STYLE (site buttons) */
+.btn {
+  border: 2px solid #000;
+  padding: 10px 16px;
+  background: #ffeb3b;
+  box-shadow: 3px 3px 0 #000;
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+/* PAGE WRAPPER */
+.generator-wrapper {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 40px;
+  border: 3px solid #000;
+  background: #fff;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.generator-wrapper h2 {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.generator-wrapper h3 {
+  font-size: 12px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.generator-wrapper label {
+  font-size: 10px;
+}
+
+.generator-wrapper input {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 8px;
+  border: 2px solid #000;
+  margin-top: 5px;
+}
+
+.generator-wrapper input[type="color"] {
+  padding: 0;
+  height: 40px;
+  width: 60px;
+}
+
+.generator-wrapper input[type="number"] {
+  width: 80px;
+}
+
+#preview {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #000;
+  background: #fff8dc;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  border: 2px solid #000;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+<a href="homepage.html"><div class="logo">ToolCart</div></a>
+  <ul>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="#">Donations</a></li>
+    <li><a href="Signup.html" class="btn">Get Started</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<div class="generator-wrapper">
+
+<h2>CSS Button Generator</h2>
+
+<label>Button Text:</label><br>
+<input type="text" id="btnText" value="Click Me">
+<br><br>
+
+<label>Background Color:</label><br>
+<input type="color" id="bgColor" value="#4CAF50">
+<br><br>
+
+<label>Text Color:</label><br>
+<input type="color" id="textColor" value="#ffffff">
+<br><br>
+
+<label>Border Radius:</label><br>
+<input type="number" id="radius" value="8">
+<br><br>
+
+<button class="btn" onclick="generateButton()">Generate</button>
+
+<hr style="margin:30px 0; border:2px solid #000;">
+
+<div id="preview"></div>
+
+<h3>Generated CSS:</h3>
+<textarea id="cssOutput" rows="6"></textarea>
+
+</div>
+
+</main>
+
+<script>
+function generateButton() {
+
+    let text = document.getElementById("btnText").value;
+    let bgColor = document.getElementById("bgColor").value;
+    let textColor = document.getElementById("textColor").value;
+    let radius = document.getElementById("radius").value;
+
+    let css = `
+button {
+  background-color: ${bgColor};
+  color: ${textColor};
+  padding: 10px 20px;
+  border: none;
+  border-radius: ${radius}px;
+  cursor: pointer;
+}
+`;
+
+    document.getElementById("cssOutput").value = css;
+
+    document.getElementById("preview").innerHTML =
+        `<button style="background:${bgColor};
+                        color:${textColor};
+                        padding:10px 20px;
+                        border:none;
+                        border-radius:${radius}px;">
+         ${text}
+         </button>`;
+}
+</script>
+
+</body>
+</html>
